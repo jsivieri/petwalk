@@ -18,4 +18,12 @@ public class PetService {
         return model;
     }
 
+    public PetModel findId(Long id) {
+        return repository.findById(id).orElseThrow();
+    }
+
+    public List<PetModel> findAll() {
+        return repository.findAll();
+    }
+
 }

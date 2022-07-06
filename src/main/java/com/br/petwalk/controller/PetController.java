@@ -19,4 +19,14 @@ public class PetController {
         return service.save(model);
     }
 
+    @GetMapping("/{id}")
+    public PetModel buscarPorId(@PathVariable Long id){
+        return service.findId(id);
+    }
+
+    @GetMapping
+    public List<PetModel> buscarTodosPets(){
+        return service.findAll();
+    }
+
 }
