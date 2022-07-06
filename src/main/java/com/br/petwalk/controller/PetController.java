@@ -28,5 +28,18 @@ public class PetController {
     public List<PetModel> buscarTodosPets(){
         return service.findAll();
     }
+    
+    //modificacoes yure
+    
+    @PatchMapping("/{id}")
+    public PetModel atualizarPet(@PathVariable Long id, @RequestBody PetModel model){
+        return service.update(id, model);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletarPet(@PathVariable Long id){
+        service.deletar(id);
+    }
+    
 
 }

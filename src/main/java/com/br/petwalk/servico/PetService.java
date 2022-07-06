@@ -25,5 +25,22 @@ public class PetService {
     public List<PetModel> findAll() {
         return repository.findAll();
     }
+    
+    public PetModel update(Long id, PetModel model) {
+        PetModel old = this.findId(id);
+        old.setIdade(model.getIdade());
+        old.setPorte(model.getPorte());
+        old.setRaca(model.getRaca());
+        old.setSexo(model.getSexo());
+        repository.save(old);
+        return old;
+    }
 
+    public void deletar(Long id){
+        repository.deleteById(id);
+    }
+    
+    
 }
+
+
